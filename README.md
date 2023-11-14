@@ -1,6 +1,6 @@
 # README
 
-## PROBLEM TO SOLVE
+## Problem to solve
 Create a feature that allows scrolling horizontally within a table when the table width exceeds the viewport width that functions on click and mouse drag.
 
 <!-- This README would normally document whatever steps are necessary to get the
