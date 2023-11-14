@@ -44,10 +44,14 @@ gem "bootsnap", require: false
 
 # Use haml
 gem 'haml'
+# Use jquery as the JavaScript librar
+gem 'jquery-rails'
+
+# Use jquery-ui for pretty UI
 gem 'jquery-ui-rails'
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

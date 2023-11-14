@@ -40,15 +40,16 @@
     })
 
     function yieldFeature() {
-      const outerBox = $("<div style='min-width=500px; min-heigth=500px;'></div>");
+      //const outerBox = $("<div style='min-width=500px; min-heigth=500px;'></div>");
       const draggingBox = $("<div></div>");
-      outerBox.css(outerBoxConfig.styles);
+      //outerBox.css(outerBoxConfig.styles);
       draggingBox.css(draggingBoxConfig.styles);
-      draggingBox.draggable();
+      draggingBox.draggable({
+        axis: 'x'
+      });
       // draggingBox.on("mousedown", draggingBoxConfig.dragCallback);
-
-      outerBox.append(draggingBox);
-      return outerBox;
+      //outerBox.append(draggingBox);
+      return draggingBox;
     }
 
     const outerBoxConfig = {
@@ -60,7 +61,11 @@
     };
 
     const draggingBoxConfig = {
-      styles: {},
+      styles: {
+        "border": "solid blue 2px",
+        "max-width": "100px",
+        "min-height": "50px",
+      },
       dragCallback: function (e) {
         console.log("hello");
       },
