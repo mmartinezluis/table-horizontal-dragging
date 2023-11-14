@@ -1,64 +1,67 @@
 :css
-    #hor-scroll-container {
-        position: absolute;
-        border: solid black 3px;
-        min-width: 150px;
-        min-height: 75px;
-    }
+  #hor-scroll-container {
+    position: absolute;
+    border: solid black 3px;
+    min-width: 150px;
+    min-height: 75px;
+  }
 
 %div#hor-scroll-container
 
 :javascript
     $(document).ready(function () {
-        const limit = 85/100;  // a percentage
-        const table = $('table');
-        const tableWidth = table.innerWdith;
-        const winWidth = window.innerWdith;
-        const container = $('#hor-scroll-container');
+      const limit = 85/100;  // a percentage
+      const table = $('table');
+      const tableWidth = table.innerWdith;
+      const winWidth = window.innerWdith;
+      const container = $('#hor-scroll-container');
 
-        window.onresize = showScrolling;
-        _attach_feature();
-        function showScrolling() {
-            const widthRatio = winWidth / tableWidth;
-            if(widthRatio < 1) {
-                _attach_feature();
-            } else {
-                _destroy_feature();
-            }
-        }
+      window.onresize = showScrolling;
+      _attach_feature();
 
-        function _attach_feature() {
-            _destroy_feature();
-            const feature = yieldFeature();
-            container.append(feature);
-        }
+      function showScrolling() {
+          const widthRatio = winWidth / tableWidth;
+          if(widthRatio < 1) {
+              _attach_feature();
+          } else {
+              _destroy_feature();
+          }
+      }
 
-        function _destroy_feature() {
-            container.innerHTML = '';
-        }
+      function _attach_feature() {
+          _destroy_feature();
+          const feature = yieldFeature();
+          container.append(feature);
+      }
+
+      function _destroy_feature() {
+          container.innerHTML = '';
+      }
     })
 
     function yieldFeature() {
-        const outerBox = $("<div style='min-width=500px; min-heigth=500px;'></div>");
-        const draggingBox = $("<div></div>");
-        outerBox.css(outerBoxConfig.styles);
-        draggingBox.css(draggingBoxConfig.styles);
+      const outerBox = $("<div style='min-width=500px; min-heigth=500px;'></div>");
+      const draggingBox = $("<div></div>");
+      outerBox.css(outerBoxConfig.styles);
+      draggingBox.css(draggingBoxConfig.styles);
+      draggingBox.draggable();
+      // draggingBox.on("mousedown", draggingBoxConfig.dragCallback);
 
-        draggingBox.on("mousedown", draggingBoxConfig.dragCallback);
-
-        outerBox.append(draggingBox);
-        return outerBox;
+      outerBox.append(draggingBox);
+      return outerBox;
     }
 
     const outerBoxConfig = {
       styles: {
-          "border": "solid blue 2px",
+        "border": "solid blue 2px",
+        "max-width": "100px",
+        "min-height": "50px",
       },
     };
 
     const draggingBoxConfig = {
       styles: {},
-          dragCallback: function (e) {
-              console.log("hello");
+      dragCallback: function (e) {
+        console.log("hello");
       },
     };
