@@ -6,21 +6,18 @@
         min-height: 75px;
     }
 
-
 %div#hor-scroll-container
-
 
 :javascript
     $(document).ready(function () {
-        // a percentage
-        const limit = 85/100;  
+        const limit = 85/100;  // a percentage
         const table = $('table');
         const tableWidth = table.innerWdith;
         const winWidth = window.innerWdith;
         const container = $('#hor-scroll-container');
 
         window.onresize = showScrolling;
-
+        _attach_feature();
         function showScrolling() {
             const widthRatio = winWidth / tableWidth;
             if(widthRatio < 1) {
@@ -39,5 +36,29 @@
         function _destroy_feature() {
             container.innerHTML = '';
         }
-        
     })
+
+    function yieldFeature() {
+        const outerBox = $("<div style='min-width=500px; min-heigth=500px;'></div>");
+        const draggingBox = $("<div></div>");
+        outerBox.css(outerBoxConfig.styles);
+        draggingBox.css(draggingBoxConfig.styles);
+
+        draggingBox.on("mousedown", draggingBoxConfig.dragCallback);
+
+        outerBox.append(draggingBox);
+        return outerBox;
+    }
+
+    const outerBoxConfig = {
+      styles: {
+          "border": "solid blue 2px",
+      },
+    };
+
+    const draggingBoxConfig = {
+      styles: {},
+          dragCallback: function (e) {
+              console.log("hello");
+      },
+    };
