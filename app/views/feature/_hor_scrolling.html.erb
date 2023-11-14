@@ -1,0 +1,46 @@
+<style>
+    #hor-scroll-container {
+        position: absolute;
+        border: solid black 3px;
+    }
+</style>
+
+
+<div id="hor-scroll-container"><div>
+
+
+<script>
+    $(document).ready(function () {
+        // a percentage
+        const limit = 85/100;  
+
+        console.log("dfdfdfdfd");
+        const table = $('table');
+        const tableWidth = table.innerWdith;
+        const winWidth = window.innerWdith;
+        const container = $('#hor-scroll-container');
+        window.onresize = showScrolling;
+
+        function showScrolling() {
+            const widthRatio = winWidth / tableWidth;
+            if(widthRatio < limit) {
+                _attach_feature();
+            } else {
+                _destroy_feature();
+            }
+        }
+
+        function _attach_feature() {
+            _destroy_feature();
+            
+        }
+
+        function _destroy_feature() {
+            container.innerHTML = '';
+        }
+        
+    })
+
+
+
+</script>

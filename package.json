@@ -1,0 +1,11 @@
+{
+  "name": "table-horizontal-dragging",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mmartinezluis/table-horizontal-dragging.git",
+  "author": "Luis Martinez <luis_mmartinez@live.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}
