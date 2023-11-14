@@ -1,30 +1,29 @@
-<style>
+:css
     #hor-scroll-container {
         position: absolute;
         border: solid black 3px;
+        min-width: 150px;
+        min-height: 75px;
     }
-</style>
 
 
-<div id="hor-scroll-container"><div>
+%div#hor-scroll-container
 
 
-<script>
+:javascript
     $(document).ready(function () {
         // a percentage
         const limit = 85/100;  
-
-        console.log("dfdfdfdfd");
         const table = $('table');
         const tableWidth = table.innerWdith;
         const winWidth = window.innerWdith;
         const container = $('#hor-scroll-container');
-        
+
         window.onresize = showScrolling;
 
         function showScrolling() {
             const widthRatio = winWidth / tableWidth;
-            if(widthRatio < limit) {
+            if(widthRatio < 1) {
                 _attach_feature();
             } else {
                 _destroy_feature();
@@ -42,7 +41,3 @@
         }
         
     })
-
-
-
-</script>
