@@ -2,10 +2,12 @@
   container_id = "hor-scroll-container"
 :css
   #hor-scroll-container {
-    position: absolute;
+    position: fixed;
     border: solid black 3px;
     min-width: 150px;
     min-height: 75px;
+    bottom: 0;
+    right: 0;
   }
 
 %div{:id => "#{container_id}" }
@@ -14,16 +16,16 @@
     $(document).ready(function () {
       const limit = 85/100;  // a percentage
       const table = $('table');
-      const tableWidth = table.innerWdith;
-      const winWidth = window.innerWdith;
+      const tableWidth = table.innerWidth;
+      const winWidth = window.innerWidth;
       const container = $('#hor-scroll-container');
 
       window.onresize = showScrolling;
-      _attach_feature();
+      //_attach_feature();
 
       function showScrolling() {
           const widthRatio = winWidth / tableWidth;
-          if(widthRatio < 1) {
+          if(widthRatio < 0.85) {
               _attach_feature();
           } else {
               _destroy_feature();
@@ -43,12 +45,25 @@
 
     function yieldFeature() {
       //const outerBox = $("<div style='min-width=500px; min-heigth=500px;'></div>");
+      const container = $('#hor-scroll-container');
       const draggingBox = $("<div></div>");
       //outerBox.css(outerBoxConfig.styles);
       draggingBox.css(draggingBoxConfig.styles);
       draggingBox.draggable({
         axis: 'x',
-        containment: '#' + `#{container_id}`
+        containment: '#' + `#{container_id}`,
+        drag: function(e, ui) {
+          const draggable = ui.helper;
+          const draggableThickness = draggable.outerWidth() - draggable.innerWidth();
+          const pageMaxScrollWidth = $(document).width() - window.innerWidth;
+          const featureMaxScrollWidth = container.width() - draggable.width() - draggableThickness;
+          
+          const originalPosition = ui.originalPosition.left;
+          const currentPosition = ui.position.left;
+          console.log(currentPosition)
+          $(document).scrollLeft((currentPosition/featureMaxScrollWidth) * pageMaxScrollWidth)
+          //console.log(currentPosition, featureMaxScrollWidth,pageMaxScrollWidth )
+        }
       });
       // draggingBox.on("mousedown", draggingBoxConfig.dragCallback);
       //outerBox.append(draggingBox);
@@ -74,3 +89,14 @@
         console.log("hello");
       },
     };
+
+
+
+
+
+  // document.scrollLeft() gives the current horizontal scroll position for the page
+  // max scroll horizontal = width of table - current width of page
+  // max scroll horizontal = width of page - current width of page
+  //                       = $(document).width() - window.innerWidth
+
+  // Current horizontal scroll position = $(document).scrollLeft()
