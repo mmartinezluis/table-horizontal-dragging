@@ -38,30 +38,30 @@
     
 
     function showScrolling() {
-        if(_is_within_bounds()) {
-          // exit the function if there is already a dragging box
-          if(container.html() !== '') {
-            // TODO: Use this function to resize the dragging box width proportional 
-            // to the current page width
-            //adjust_feature();
-            return;
-          }
-          _attach_feature();
-          console.log(container.html())
-        } else {
-            _destroy_feature();
+      if(_is_within_bounds()) {
+        // exit the function if there is already a dragging box
+        if(container.html() !== '') {
+          // TODO: Use this function to resize the dragging box width proportional 
+          // to the current page width
+          //adjust_feature();
+          return;
         }
+        _attach_feature();
+        console.log(container.html())
+      } else {
+          _destroy_feature();
+      }
     }
 
     function _attach_feature() {
-        _destroy_feature();
-        const feature = yieldFeature();
-        container.append(feature);
+      _destroy_feature();
+      const feature = yieldFeature();
+      container.append(feature);
     }
 
     function _destroy_feature() {
-        container.html('');
-        container.attr('style', '');
+      container.html('');
+      container.attr('style', '');
     }
 
     function _is_within_bounds() {
