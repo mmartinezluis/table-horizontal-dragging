@@ -11,6 +11,9 @@
     const styles = containerStyles;
     container.css(styles);
 
+    // exit the function if there is not a table
+    if(!table.length) return;
+
     if(_is_within_bounds()) {
       _attach_feature();
     }
@@ -115,7 +118,6 @@
     "min-height": "40px",
     "cursor": "move",
   };
-
 
 
   // Current horizontal scroll position = $(document).scrollLeft()
