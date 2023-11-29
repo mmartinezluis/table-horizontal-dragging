@@ -5,7 +5,7 @@ Create a widget that allows scrolling horizontally within a table when the table
 
 
 ## Languages and Tools
-The problem was solved using full-stack Ruby on Rails as the web framework, jQuery for JavaScript manipulation, and the jQuery-ui draggable module. The widget code can be found in app/views/feature/_hor_scrolling.html.haml.
+The problem was solved using full-stack Ruby on Rails as the web framework, jQuery for JavaScript manipulation, and the jQuery-ui draggable module. The widget code can be found in `app/views/feature/_hor_scrolling.html.haml`.
 
 ![Application demo](https://github.com/mmartinezluis/table-horizontal-dragging/assets/75151961/d307560f-c40e-4c97-b8e8-a7ae9e541e1b)
 
