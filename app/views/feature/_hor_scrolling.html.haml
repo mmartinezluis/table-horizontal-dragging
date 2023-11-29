@@ -1,7 +1,7 @@
 :ruby
   container_id = "hor-scroll-container"
 
-%div{:id => "#{container_id}" }
+%div{:id => "#{container_id}"}
 
 :javascript
   $(document).ready(function () {
@@ -79,7 +79,7 @@
     const draggingBox = $("<div></div>");
     container.css({
       ...containerStyles,
-      ...containerAjustedStyles
+      ...containerAdjustedStyles
       });
     draggingBox.css(draggingBoxStyles);
     draggingBox.draggable({
@@ -107,7 +107,7 @@
     "padding": "5px 0",
   }
 
-  const containerAjustedStyles = {
+  const containerAdjustedStyles = {
     "border": "solid black 3px",
     "min-width": "110px",
   }
