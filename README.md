@@ -10,7 +10,7 @@ The problem was solved using full-stack Ruby on Rails as the web framework, jQue
 ![Application demo](https://github.com/mmartinezluis/jquery-draggable/assets/75151961/b8083c36-c027-491c-9a79-60a707f7d535)
 
 ## Running the App
-* Clone the repositoryo to your machine
+* Clone the repository to your machine
 ```
 git clone https://github.com/mmartinezluis/jquery-draggable.git
 ```
