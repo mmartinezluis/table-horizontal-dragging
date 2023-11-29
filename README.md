@@ -7,6 +7,8 @@ Create a widget that allows scrolling horizontally within a table when the table
 ## Languages and Tools
 The problem was solved using full-stack Ruby on Rails as the web framework, jQuery, and the jQuery-ui draggable module.
 
+![Application demo](https://github.com/mmartinezluis/jquery-draggable/assets/75151961/b8083c36-c027-491c-9a79-60a707f7d535)
+
 ## Running the App
 * Clone the repositoryo to your machine
 ```
